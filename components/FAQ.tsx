@@ -63,7 +63,7 @@ export default function FAQ() {
     },
     {
       question: "Can EcoPilot integrate with our existing systems?",
-      answer: "Yes, EcoPilot integrates seamlessly with popular ERP systems, accounting software, and data sources. Our API-first architecture allows custom integrations with dedicated support."
+      answer: "Not yet — we're still working on it! Currently, EcoPilot doesn't connect directly to ERP or accounting software, but we plan to offer integrations in the future to make data entry and reporting even easier."
     },
     {
       question: "What kind of insights does EcoPilot provide to management?",
@@ -71,7 +71,7 @@ export default function FAQ() {
     },
     {
       question: "How quickly can my team start using EcoPilot?",
-      answer: "Most teams are up and running within 2 weeks. Our onboarding includes data migration, system integration, and personalized training for immediate results."
+      answer: "You can get started immediately! Our onboarding process is smooth and straightforward, so teams can jump in and begin tracking their carbon footprint without delays."
     }
   ];
 
