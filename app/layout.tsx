@@ -12,6 +12,9 @@ const ibmPlexSerif = IBM_Plex_Serif({
 export const metadata: Metadata = {
   title: "EcoPilot - Measure. Reduce. Report. With AI.",
   description: "Smarter carbon management software that helps your business cut emissions and stay compliant — automatically.",
+  icons: {
+    icon: '/images/logo.png',
+  },
 };
 
 export default function RootLayout({
