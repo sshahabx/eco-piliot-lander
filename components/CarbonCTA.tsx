@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function AnimatedButton() {
   return (
@@ -24,7 +27,13 @@ function AnimatedButton() {
 export default function CarbonCTA() {
   return (
     <section id="contact" className="w-full bg-[#F7F7F5] relative py-12 md:py-16">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <motion.div 
+        className="max-w-[1400px] mx-auto px-6 md:px-12"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div 
           className="bg-[#111111] rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl"
           style={{
@@ -48,7 +57,13 @@ export default function CarbonCTA() {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
             {/* Left Column - CTA Content */}
-            <div className="flex flex-col gap-4 text-white">
+            <motion.div 
+              className="flex flex-col gap-4 text-white"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            >
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                 Make carbon management easy for yourself
               </h2>
@@ -71,15 +86,21 @@ export default function CarbonCTA() {
               <div className="mt-2 w-full">
                 <AnimatedButton />
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column - Dashboard Card */}
-            <div className="w-full">
+            <motion.div 
+              className="w-full"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+            >
               <DashboardCard />
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

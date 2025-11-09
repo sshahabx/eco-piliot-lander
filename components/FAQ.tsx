@@ -1,17 +1,25 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface FAQItemProps {
   question: string;
   answer: string;
   isOpen: boolean;
   onToggle: () => void;
+  index: number;
 }
 
-function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
+function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
   return (
-    <div className="mb-6">
+    <motion.div 
+      className="mb-6"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+    >
       <button
         onClick={onToggle}
         className="w-full text-left flex items-start justify-between gap-4 group cursor-pointer"
@@ -37,7 +45,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
           {answer}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -84,12 +92,24 @@ export default function FAQ() {
       <div className="mx-auto max-w-[1200px]">
         {/* Section Heading */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Frequently Asked Questions
-          </h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          >
             In case you missed anything and had some more questions.
-          </p>
+          </motion.p>
         </div>
 
         {/* FAQ List - Single Column */}
@@ -97,6 +117,7 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}
+              index={index}
               question={faq.question}
               answer={faq.answer}
               isOpen={openIndex === index}
