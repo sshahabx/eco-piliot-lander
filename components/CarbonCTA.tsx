@@ -6,7 +6,7 @@ import { useRef } from 'react';
 
 function AnimatedButton() {
   return (
-    <button className="w-full inline-flex items-center justify-center gap-2 font-medium rounded-[25px] bg-[#F7F7F5] text-black border-[1.5px] border-[#F7F7F5] px-6 py-3 hover:bg-white hover:border-white group relative transition-all duration-200">
+    <a href="https://platform.ecopilot.app" className="w-full inline-flex items-center justify-center gap-2 font-medium rounded-[25px] bg-[#F7F7F5] text-black border-[1.5px] border-[#F7F7F5] px-6 py-3 hover:bg-white hover:border-white group relative transition-all duration-200">
       {/* Radar-animated black dot */}
       <span className="relative inline-flex">
         <span className="w-2 h-2 rounded-full bg-black animate-radar-pulse" />
@@ -21,7 +21,7 @@ function AnimatedButton() {
           <span className="flex items-center justify-center" style={{ height: '1.25rem' }}>Launch</span>
         </span>
       </span>
-    </button>
+    </a>
   );
 }
 

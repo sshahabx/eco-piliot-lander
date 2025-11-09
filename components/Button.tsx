@@ -10,6 +10,7 @@ interface ButtonProps {
   dotColor?: 'green' | 'black';
   radarEffect?: boolean;
   onClick?: () => void;
+  href?: string;
   className?: string;
 }
 
@@ -20,6 +21,7 @@ export default function Button({
   dotColor = 'black',
   radarEffect = false,
   onClick,
+  href,
   className = '',
 }: ButtonProps) {
   const baseStyles = 'inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 whitespace-nowrap';
@@ -34,9 +36,12 @@ export default function Button({
     black: 'bg-black',
   };
 
+  const Component = href ? motion.a : motion.button;
+  const componentProps = href ? { href } : { onClick };
+
   return (
-    <motion.button
-      onClick={onClick}
+    <Component
+      {...componentProps}
       className={`${baseStyles} ${variantStyles[variant]} ${className} group`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.98 }}
@@ -59,7 +64,7 @@ export default function Button({
           <span className="flex items-center" style={{ height: '1.25rem' }}>{children}</span>
         </span>
       </span>
-    </motion.button>
+    </Component>
   );
 }
 

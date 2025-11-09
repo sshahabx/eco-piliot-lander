@@ -68,7 +68,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Button variant="primary" showDot dotColor="green" className="text-sm sm:text-base px-4 sm:px-6">
+              <Button variant="primary" showDot dotColor="green" href="https://platform.ecopilot.app" className="text-sm sm:text-base px-4 sm:px-6">
                 Launch
               </Button>
             </motion.div>

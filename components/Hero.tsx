@@ -51,7 +51,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 sm:gap-4 pt-2 sm:pt-4 w-full sm:w-auto px-4 sm:px-0 max-w-md sm:max-w-none"
             variants={fadeInUp}
           >
-            <Button variant="primary" showDot dotColor="green" radarEffect className="w-full sm:w-auto">
+            <Button variant="primary" showDot dotColor="green" radarEffect href="https://platform.ecopilot.app" className="w-full sm:w-auto">
               Launch
             </Button>
           </motion.div>
