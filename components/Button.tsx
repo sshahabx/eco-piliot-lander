@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -32,9 +35,12 @@ export default function Button({
   };
 
   return (
-    <button
+    <motion.button
       onClick={onClick}
       className={`${baseStyles} ${variantStyles[variant]} ${className} group`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
     >
       {showDot && (
         <span className="relative inline-flex">
@@ -53,7 +59,7 @@ export default function Button({
           <span className="flex items-center" style={{ height: '1.25rem' }}>{children}</span>
         </span>
       </span>
-    </button>
+    </motion.button>
   );
 }
 

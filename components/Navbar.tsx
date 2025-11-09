@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Button from './Button';
 
 function NavLink({ href, label }: { href: string; label: string }) {
@@ -19,11 +22,21 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b border-gray-200 bg-white sticky top-0 z-50">
+    <motion.nav 
+      className="w-full border-b border-gray-200 bg-white sticky top-0 z-50"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="max-w-[1200px] mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity duration-200">
+          <motion.a 
+            href="/" 
+            className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
             <Image
               src="/images/logo.png"
               alt="EcoPilot Logo"
@@ -32,24 +45,34 @@ export default function Navbar() {
               className="w-12 h-12"
             />
             <span className="text-xl font-bold text-black">EcoPilot</span>
-          </a>
+          </motion.a>
 
           {/* Navigation Links - Hidden on mobile */}
-          <div className="hidden md:flex items-center gap-8">
+          <motion.div 
+            className="hidden md:flex items-center gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <NavLink href="#features" label="Features" />
             <NavLink href="#about" label="About" />
             <NavLink href="#contact" label="Contact" />
-          </div>
+          </motion.div>
 
           {/* CTA Button */}
-          <div className="flex items-center gap-4">
+          <motion.div 
+            className="flex items-center gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <Button variant="primary" showDot dotColor="green">
               Try for free
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

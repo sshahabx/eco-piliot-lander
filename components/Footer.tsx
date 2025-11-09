@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 function FooterLink({ href, label }: { href: string; label: string }) {
   return (
@@ -28,9 +31,21 @@ function SocialIcon({ href, children, label }: { href: string; children: React.R
   );
 }
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" }
+};
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#F7F7F5] text-[#111111]">
+    <motion.footer 
+      className="w-full bg-[#F7F7F5] text-[#111111]"
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeIn}
+    >
       <div className="max-w-[1200px] mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1: Brand & Social */}
@@ -123,7 +138,7 @@ export default function Footer() {
           ©2025 EcoPilot, All rights reserved.
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }
 
