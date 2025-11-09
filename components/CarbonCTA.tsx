@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 function AnimatedButton() {
   return (
@@ -167,24 +168,15 @@ function DashboardCard() {
                 {/* Chart area - Showing downward trend over time */}
                 <div className="relative flex-1 h-32 sm:h-36 md:h-40 border-l border-b border-gray-600/60 pl-3 pb-2">
                   {/* Trendline SVG overlay */}
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
-                    <polyline
-                      points="10,10 28,25 46,50 64,70 82,80"
-                      fill="none"
-                      stroke="#7DFFA0"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
-                      opacity="0.6"
-                    />
-                  </svg>
+                  <TrendlineSVG />
                   
                   {/* Bars */}
                   <div className="flex items-end gap-2 sm:gap-3 h-full relative" style={{ zIndex: 2 }}>
-                    <ChartBar height="90%" label="Q1" />
-                    <ChartBar height="75%" label="Q2" />
-                    <ChartBar height="55%" label="Q3" />
-                    <ChartBar height="40%" label="Q4" />
-                    <ChartBar height="30%" label="2024" />
+                    <ChartBar height="90%" label="Q1" delay={0} />
+                    <ChartBar height="75%" label="Q2" delay={0.15} />
+                    <ChartBar height="55%" label="Q3" delay={0.3} />
+                    <ChartBar height="40%" label="Q4" delay={0.45} />
+                    <ChartBar height="30%" label="2024" delay={0.6} />
                   </div>
                 </div>
               </div>
@@ -200,6 +192,27 @@ function DashboardCard() {
         </div>
       </div>
     </div>
+  );
+}
+
+function TrendlineSVG() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <svg ref={ref} className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+      <motion.polyline
+        points="10,10 28,25 46,50 64,70 82,80"
+        fill="none"
+        stroke="#7DFFA0"
+        strokeWidth="2"
+        strokeDasharray="4 4"
+        opacity="0.6"
+        initial={{ pathLength: 0 }}
+        animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+        transition={{ duration: 1.5, delay: 0.8, ease: "easeInOut" }}
+      />
+    </svg>
   );
 }
 
@@ -226,27 +239,103 @@ function MetricCard({
   growth: string;
   unit: string;
 }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [displayValue, setDisplayValue] = useState(0);
+  const [displayGrowth, setDisplayGrowth] = useState(0);
+  
+  const targetValue = parseFloat(value.replace(/,/g, ''));
+  const targetGrowth = parseInt(growth);
+
+  useEffect(() => {
+    if (isInView) {
+      const duration = 1500; // 1.5 seconds
+      const steps = 60;
+      const increment = targetValue / steps;
+      const growthIncrement = targetGrowth / steps;
+      let current = 0;
+      let currentGrowth = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        currentGrowth += growthIncrement;
+        
+        if (current >= targetValue) {
+          setDisplayValue(targetValue);
+          setDisplayGrowth(targetGrowth);
+          clearInterval(timer);
+        } else {
+          setDisplayValue(current);
+          setDisplayGrowth(currentGrowth);
+        }
+      }, duration / steps);
+
+      return () => clearInterval(timer);
+    }
+  }, [isInView, targetValue, targetGrowth]);
+
+  const formatValue = (val: number) => {
+    if (val >= 1000) {
+      return Math.round(val).toLocaleString();
+    }
+    return val.toFixed(1);
+  };
+
+  const formatGrowth = (val: number) => {
+    return val >= 0 ? `+${Math.round(val)}%` : `${Math.round(val)}%`;
+  };
+
   return (
-    <div className="bg-black/30 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl border border-gray-700/30 flex flex-col gap-1.5 sm:gap-2 items-start min-h-[90px] sm:min-h-[100px] md:min-h-[110px] hover:border-gray-600/50 transition-colors">
+    <motion.div
+      ref={ref}
+      className="bg-black/30 backdrop-blur-sm p-3 sm:p-4 rounded-lg sm:rounded-xl border border-gray-700/30 flex flex-col gap-1.5 sm:gap-2 items-start min-h-[90px] sm:min-h-[100px] md:min-h-[110px] hover:border-gray-600/50 transition-colors"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="text-gray-400 text-[10px] sm:text-xs md:text-sm">{label}</div>
       <div className="flex items-baseline gap-1.5 sm:gap-2">
-        <span className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">{value}</span>
-        <span className="text-[#7DFFA0] text-xs sm:text-sm md:text-base font-semibold">{growth}</span>
+        <span className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+          {formatValue(displayValue)}
+        </span>
+        <span className="text-[#7DFFA0] text-xs sm:text-sm md:text-base font-semibold">
+          {formatGrowth(displayGrowth)}
+        </span>
       </div>
       <div className="text-gray-500 text-[10px] sm:text-xs md:text-sm mt-auto">{unit}</div>
-    </div>
+    </motion.div>
   );
 }
 
-function ChartBar({ height, label }: { height: string; label: string }) {
+function ChartBar({ height, label, delay = 0 }: { height: string; label: string; delay?: number }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
   return (
-    <div className="flex-1 flex flex-col items-center justify-end gap-1.5 min-w-[40px] sm:min-w-[45px] md:min-w-[50px]">
-      <div className="w-full rounded-t-md relative overflow-hidden border border-[#7DFFA0]/20" style={{ height }}>
+    <div ref={ref} className="flex-1 flex flex-col items-center justify-end gap-1.5 min-w-[40px] sm:min-w-[45px] md:min-w-[50px]">
+      <motion.div 
+        className="w-full rounded-t-md relative overflow-hidden border border-[#7DFFA0]/20"
+        initial={{ height: 0 }}
+        animate={isInView ? { height } : { height: 0 }}
+        transition={{ duration: 1, delay, ease: "easeOut" }}
+      >
         <div className="w-full h-full bg-gradient-to-t from-[#7DFFA0]/50 via-[#7DFFA0]/30 to-[#7DFFA0]/20 rounded-t-md" />
         {/* Highlight top */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#7DFFA0]/80" />
-      </div>
-      <span className="text-gray-400 text-[9px] sm:text-[10px] md:text-[11px] font-medium">{label}</span>
+        <motion.div 
+          className="absolute top-0 left-0 right-0 h-1 bg-[#7DFFA0]/80"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.3, delay: delay + 0.8 }}
+        />
+      </motion.div>
+      <motion.span 
+        className="text-gray-400 text-[9px] sm:text-[10px] md:text-[11px] font-medium"
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.3, delay: delay + 0.5 }}
+      >
+        {label}
+      </motion.span>
     </div>
   );
 }
