@@ -34,7 +34,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${className} group`}
     >
       {showDot && (
         <span className="relative inline-flex">
@@ -47,7 +47,12 @@ export default function Button({
           )}
         </span>
       )}
-      {children}
+      <span className="relative overflow-hidden inline-block" style={{ height: '1.25rem' }}>
+        <span className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
+          <span className="flex items-center" style={{ height: '1.25rem' }}>{children}</span>
+          <span className="flex items-center" style={{ height: '1.25rem' }}>{children}</span>
+        </span>
+      </span>
     </button>
   );
 }

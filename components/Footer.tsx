@@ -105,9 +105,14 @@ export default function Footer() {
                 placeholder="Enter your email"
                 className="w-full border-[1.5px] border-black rounded-[5px] px-3 py-2 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
               />
-              <button className="inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 whitespace-nowrap rounded-[25px] bg-[#111111] text-white border-[1.5px] border-[#111111] px-6 py-2 hover:bg-gray-800 w-full sm:w-auto">
+              <button className="inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 whitespace-nowrap rounded-[25px] bg-[#111111] text-white border-[1.5px] border-[#111111] px-6 py-2 hover:bg-gray-800 w-full sm:w-auto group">
                 <span className="w-2 h-2 rounded-full bg-green-500" />
-                Submit
+                <span className="relative overflow-hidden inline-block" style={{ height: '1.25rem' }}>
+                  <span className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
+                    <span className="flex items-center" style={{ height: '1.25rem' }}>Submit</span>
+                    <span className="flex items-center" style={{ height: '1.25rem' }}>Submit</span>
+                  </span>
+                </span>
               </button>
             </div>
           </div>
