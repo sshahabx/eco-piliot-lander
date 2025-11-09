@@ -91,7 +91,6 @@ export default function Footer() {
               <FooterLink href="#features" label="Features" />
               <FooterLink href="#about" label="About" />
               <FooterLink href="#faq" label="FAQ" />
-              <FooterLink href="#contact" label="Contact" />
             </div>
           </div>
 
