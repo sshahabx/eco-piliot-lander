@@ -21,7 +21,7 @@ const staggerContainer = {
 
 export default function Hero() {
   return (
-    <section id="hero" className="w-full min-h-[49vh] sm:min-h-[calc(100vh-73px)] flex items-center justify-center relative pb-24 sm:pb-40 md:pb-56 bg-[#043915]">
+    <section id="hero" className="w-full min-h-[49vh] sm:min-h-[calc(100vh-73px)] flex items-center justify-center relative pb-24 sm:pb-40 md:pb-56 bg-gradient-to-br from-[#043915] via-[#054d1d] to-[#032d11]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-6 sm:py-10 md:py-12">
         <motion.div
           className="flex flex-col items-center justify-center text-center space-y-3 sm:space-y-6 md:space-y-8"
@@ -67,7 +67,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
         >
           {/* Gradient fade background */}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#043915] via-[#043915]/50 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl blur-xl" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#043915] via-[#054d1d]/50 to-transparent rounded-lg sm:rounded-xl md:rounded-2xl blur-xl" />
           
           {/* Image - Cropped to top-left on mobile, full on desktop */}
           <div className="relative rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)] sm:shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
