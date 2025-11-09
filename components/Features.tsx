@@ -48,8 +48,8 @@ export default function Features() {
       description: 'Get started in minutes with tailored setup based on your industry, number of employees, and business activities.',
     },
     {
-      title: 'Automated Footprint Calculator',
-      description: 'Track Scope 1, 2, and 3 emissions automatically with smart input wizards and real-time data integration.',
+      title: 'AI Sustainability Assistant',
+      description: 'Ask questions about your footprint and get clear, step-by-step action guidance. Removes confusion and helps teams know what to do next.',
     },
     {
       title: 'Emissions Hotspot Dashboard',
@@ -60,8 +60,8 @@ export default function Features() {
       description: 'Get AI-powered recommendations with high-impact actions ranked by ROI, presented as an actionable to-do feed.',
     },
     {
-      title: 'Team Challenges & Gamification',
-      description: 'Engage employees with EcoPoints, achievement badges, and leaderboards that make sustainability fun and competitive.',
+      title: 'Open CEDA CO₂ Estimates',
+      description: 'Automatically convert company spending into CO₂ emissions. No manual calculations saves time and gives a clearer view of Scope 3 impact.',
     },
     {
       title: 'Reporting & ROI Insights',
