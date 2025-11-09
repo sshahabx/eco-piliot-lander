@@ -23,7 +23,7 @@ function AnimatedButton() {
 
 export default function CarbonCTA() {
   return (
-    <section className="w-full bg-[#F7F7F5] relative py-12 md:py-16">
+    <section id="contact" className="w-full bg-[#F7F7F5] relative py-12 md:py-16">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <div 
           className="bg-[#111111] rounded-3xl p-6 md:p-8 lg:p-10 shadow-2xl"

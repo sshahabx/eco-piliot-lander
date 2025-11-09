@@ -29,7 +29,6 @@ export default function Navbar() {
           {/* Navigation Links - Hidden on mobile */}
           <div className="hidden md:flex items-center gap-8">
             <NavLink href="#features" label="Features" />
-            <NavLink href="#pricing" label="Pricing" />
             <NavLink href="#about" label="About" />
             <NavLink href="#contact" label="Contact" />
           </div>

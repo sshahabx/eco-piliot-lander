@@ -67,9 +67,9 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h3 className="text-base font-semibold">Sitemap</h3>
             <div className="flex flex-col gap-3">
-              <FooterLink href="#benefits" label="Benefits" />
-              <FooterLink href="#pricing" label="Pricing" />
-              <FooterLink href="#blog" label="Blog" />
+              <FooterLink href="#features" label="Features" />
+              <FooterLink href="#about" label="About" />
+              <FooterLink href="#faq" label="FAQ" />
               <FooterLink href="#contact" label="Contact" />
             </div>
           </div>
