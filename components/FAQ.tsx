@@ -66,20 +66,12 @@ export default function FAQ() {
       answer: "Yes, EcoPilot integrates seamlessly with popular ERP systems, accounting software, and data sources. Our API-first architecture allows custom integrations with dedicated support."
     },
     {
-      question: "How do I stay compliant with environmental regulations using EcoPilot?",
-      answer: "EcoPilot automatically tracks regulatory changes and generates audit-ready reports aligned with GHG Protocol, CDP, TCFD, and local regulations."
-    },
-    {
       question: "What kind of insights does EcoPilot provide to management?",
       answer: "EcoPilot delivers executive dashboards with KPIs like carbon intensity, reduction trends, and ROI on sustainability initiatives with industry benchmarking."
     },
     {
       question: "How quickly can my team start using EcoPilot?",
       answer: "Most teams are up and running within 2 weeks. Our onboarding includes data migration, system integration, and personalized training for immediate results."
-    },
-    {
-      question: "Is the data secure and private?",
-      answer: "Data security is our top priority. EcoPilot uses bank-level encryption (AES-256), SOC 2 Type II compliance, and we never share your data without consent."
     }
   ];
 

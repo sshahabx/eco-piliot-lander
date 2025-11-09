@@ -113,18 +113,16 @@ function DashboardCard() {
         {/* Sidebar Navigation - Hidden on mobile, visible on desktop */}
         <div className="hidden lg:flex lg:col-span-3 flex-col space-y-3 min-w-[120px]">
           <div className="text-white font-semibold text-sm md:text-base mb-2">EcoPilot</div>
-          <NavItem label="Dashboard" active />
-          <NavItem label="Targets" />
-          <NavItem label="Data Sources" />
-          <NavItem label="Profile" />
-          <NavItem label="Organisation" />
+          <NavItem label="Overview" active />
+          <NavItem label="Carbon Footprint" />
+          <NavItem label="Action Plan" />
           <NavItem label="Settings" />
         </div>
 
         {/* Main Metrics Area */}
         <div className="col-span-12 lg:col-span-9 flex flex-col gap-3 sm:gap-4">
           {/* Mobile Title - Hidden on desktop */}
-          <div className="lg:hidden text-white font-semibold text-sm mb-2">EcoPilot Dashboard</div>
+          <div className="lg:hidden text-white font-semibold text-sm mb-2">EcoPilot Overview</div>
           
           {/* Key Metrics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">

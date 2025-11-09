@@ -17,13 +17,13 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 function SocialIcon({ href, children, label }: { href: string; children: React.ReactNode; label: string }) {
   return (
-    <a
-      href={href}
-      aria-label={label}
-      className="text-black hover:opacity-60 transition-opacity duration-200 p-2"
+    <span
+      aria-label={`${label} (coming soon)`}
+      title="Coming soon"
+      className="text-black opacity-40 cursor-not-allowed p-2"
     >
       {children}
-    </a>
+    </span>
   );
 }
 
@@ -101,7 +101,7 @@ export default function Footer() {
             <div className="flex flex-col gap-1.5 sm:gap-2">
               <FooterLink href="/privacy" label="Privacy" />
               <FooterLink href="/terms" label="Terms" />
-              <FooterLink href="/404" label="404" />
+              <FooterLink href="/legal" label="Legal" />
             </div>
           </div>
 
@@ -113,13 +113,21 @@ export default function Footer() {
                 type="email"
                 id="email"
                 placeholder="Enter your email"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                disabled
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-gray-100 text-xs sm:text-sm text-gray-400 cursor-not-allowed opacity-60"
+                aria-label="Newsletter email input (coming soon)"
               />
-              <button className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-medium rounded-lg bg-[#111111] text-white px-4 py-2 hover:bg-gray-800 transition-colors w-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              <button 
+                disabled
+                className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-medium rounded-lg bg-gray-400 text-gray-200 px-4 py-2 cursor-not-allowed w-full opacity-60"
+                aria-label="Submit newsletter (coming soon)"
+                title="Newsletter feature coming soon"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
                 Submit
               </button>
             </div>
+            <p className="text-[10px] text-gray-500 italic">Coming soon</p>
           </div>
         </div>
 
