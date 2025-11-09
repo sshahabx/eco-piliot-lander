@@ -12,17 +12,17 @@ interface FeatureCardProps {
 function FeatureCard({ title, description, index }: FeatureCardProps) {
   return (
     <motion.div
-      className="bg-white rounded-2xl p-6 shadow-lg flex flex-col gap-4 group"
+      className="bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 shadow-lg flex flex-col gap-3 sm:gap-4 group"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
       whileHover={{ scale: 1.03, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
     >
       {/* Green Accent Dot */}
-      <div className="flex items-center gap-3">
-        <motion.div 
-          className="w-3 h-3 rounded-full bg-[#2ecc71] flex-shrink-0"
+      <div className="flex items-center gap-2 sm:gap-3">
+        <motion.div
+          className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#2ecc71] flex-shrink-0"
           whileHover={{ scale: 1.2 }}
           transition={{ duration: 0.3 }}
         />
@@ -30,10 +30,10 @@ function FeatureCard({ title, description, index }: FeatureCardProps) {
 
       {/* Card Content */}
       <div>
-        <h3 className="text-lg md:text-xl font-bold text-[#111111] mb-2">
+        <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#111111] mb-2">
           {title}
         </h3>
-        <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
           {description}
         </p>
       </div>
@@ -70,11 +70,11 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="w-full bg-[#F7F7F5] px-6 pb-24 pt-64 sm:pt-80 md:pt-96">
+    <section id="features" className="w-full bg-[#F7F7F5] px-4 sm:px-6 pb-16 sm:pb-20 md:pb-24 pt-44 sm:pt-72 md:pt-80 lg:pt-96">
       <div className="mx-auto max-w-[1200px]">
         {/* Heading */}
-        <motion.h2 
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#111111] mb-6"
+        <motion.h2
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-[#111111] mb-4 sm:mb-6 px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -84,8 +84,8 @@ export default function Features() {
         </motion.h2>
 
         {/* Subheading */}
-        <motion.p 
-          className="text-lg md:text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12"
+        <motion.p
+          className="text-base sm:text-lg md:text-xl text-center text-gray-700 max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12 px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -95,7 +95,7 @@ export default function Features() {
         </motion.p>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

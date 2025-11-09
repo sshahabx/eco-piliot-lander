@@ -13,35 +13,35 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
   return (
-    <motion.div 
-      className="mb-6"
+    <motion.div
+      className="mb-4 sm:mb-6 border-b border-gray-200 pb-4 sm:pb-6"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
     >
       <button
         onClick={onToggle}
-        className="w-full text-left flex items-start justify-between gap-4 group cursor-pointer"
+        className="w-full text-left flex items-start justify-between gap-3 sm:gap-4 group cursor-pointer min-h-[44px]"
       >
-        <h3 className="text-base md:text-lg font-semibold text-black group-hover:text-gray-700 transition-colors">
+        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-black group-hover:text-gray-700 transition-colors pr-2">
           {question}
         </h3>
         <span className="flex-shrink-0 mt-1 transition-transform duration-300 ease-out" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </span>
       </button>
-      
-      <div 
+
+      <div
         className="overflow-hidden transition-all duration-300 ease-out"
-        style={{ 
+        style={{
           maxHeight: isOpen ? '500px' : '0',
           opacity: isOpen ? 1 : 0
         }}
       >
-        <p className="text-sm md:text-base text-gray-700 mt-3 leading-relaxed">
+        <p className="text-xs sm:text-sm md:text-base text-gray-700 mt-2 sm:mt-3 leading-relaxed">
           {answer}
         </p>
       </div>
@@ -88,12 +88,12 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="w-full bg-[#F7F7F5] px-6 py-24">
+    <section id="faq" className="w-full bg-[#F7F7F5] px-4 sm:px-6 py-16 sm:py-20 md:py-24">
       <div className="mx-auto max-w-[1200px]">
         {/* Section Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4"
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 sm:mb-4 px-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -101,8 +101,8 @@ export default function FAQ() {
           >
             Frequently Asked Questions
           </motion.h2>
-          <motion.p 
-            className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
+          <motion.p
+            className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -113,7 +113,7 @@ export default function FAQ() {
         </div>
 
         {/* FAQ List - Single Column */}
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto px-2 sm:px-4">
           {faqs.map((faq, index) => (
             <FAQItem
               key={index}
