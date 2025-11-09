@@ -17,8 +17,8 @@ function AnimatedButton() {
       {/* Animated text */}
       <span className="inline-block overflow-hidden" style={{ height: '1.25rem' }}>
         <span className="flex flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
-          <span className="flex items-center justify-center" style={{ height: '1.25rem' }}>Try for free</span>
-          <span className="flex items-center justify-center" style={{ height: '1.25rem' }}>Try for free</span>
+          <span className="flex items-center justify-center" style={{ height: '1.25rem' }}>Launch</span>
+          <span className="flex items-center justify-center" style={{ height: '1.25rem' }}>Launch</span>
         </span>
       </span>
     </button>

@@ -52,10 +52,7 @@ export default function Hero() {
             variants={fadeInUp}
           >
             <Button variant="primary" showDot dotColor="green" radarEffect className="w-full sm:w-auto">
-              Try for free
-            </Button>
-            <Button variant="outline" showDot dotColor="black" className="w-full sm:w-auto">
-              Book a call
+              Launch
             </Button>
           </motion.div>
         </motion.div>

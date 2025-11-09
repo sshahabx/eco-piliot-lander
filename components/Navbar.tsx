@@ -69,7 +69,7 @@ export default function Navbar() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Button variant="primary" showDot dotColor="green" className="text-sm sm:text-base px-4 sm:px-6">
-                Try for free
+                Launch
               </Button>
             </motion.div>
           </div>
