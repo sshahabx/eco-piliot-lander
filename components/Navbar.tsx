@@ -19,11 +19,11 @@ function NavLink({ href, label }: { href: string; label: string }) {
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b border-gray-200 bg-white">
+    <nav className="w-full border-b border-gray-200 bg-white sticky top-0 z-50">
       <div className="max-w-[1200px] mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity duration-200">
             <Image
               src="/images/logo.png"
               alt="EcoPilot Logo"
@@ -32,7 +32,7 @@ export default function Navbar() {
               className="w-12 h-12"
             />
             <span className="text-xl font-bold text-black">EcoPilot</span>
-          </div>
+          </a>
 
           {/* Navigation Links - Hidden on mobile */}
           <div className="hidden md:flex items-center gap-8">

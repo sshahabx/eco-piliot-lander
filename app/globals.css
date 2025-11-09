@@ -7,6 +7,11 @@
   --foreground: #111111;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed navbar */
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

@@ -35,7 +35,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1: Brand & Social */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
+            <a href="/" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity duration-200">
               <Image
                 src="/images/logo.png"
                 alt="EcoPilot Logo"
@@ -44,7 +44,7 @@ export default function Footer() {
                 className="w-9 h-9"
               />
               <h3 className="text-lg font-bold">EcoPilot</h3>
-            </div>
+            </a>
             <p className="text-sm">Smarter carbon management software.</p>
             <div className="flex items-center gap-4 mt-2">
               <SocialIcon href="https://instagram.com" label="Instagram">
