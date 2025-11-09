@@ -31,10 +31,12 @@ export default function Hero() {
         >
           {/* Main Heading */}
           <motion.h1
-            className="text-xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight px-2"
+            className="text-xl sm:text-4xl md:text-5xl lg:text-7xl text-white leading-tight px-2"
             variants={fadeInUp}
           >
-            Measure. Reduce. Report. With AI.
+            <span className="font-bold">Measure.</span> <span className="font-bold">Reduce.</span> <span className="font-bold">Report.</span>
+            <br />
+            <span className="font-normal">With AI</span>
           </motion.h1>
 
           {/* Subheading */}
