@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Button from './Button';
 
 function NavLink({ href, label }: { href: string; label: string }) {
@@ -22,7 +23,14 @@ export default function Navbar() {
       <div className="max-w-[1200px] mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/logo.png"
+              alt="EcoPilot Logo"
+              width={48}
+              height={48}
+              className="w-12 h-12"
+            />
             <span className="text-xl font-bold text-black">EcoPilot</span>
           </div>
 
