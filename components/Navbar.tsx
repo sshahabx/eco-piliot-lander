@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-black">EcoCarbon</span>
+            <span className="text-xl font-bold text-black">EcoPilot</span>
           </div>
 
           {/* Navigation Links - Hidden on mobile */}

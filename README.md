@@ -1,4 +1,4 @@
-# EcoCarbon Landing Page
+# EcoPilot Landing Page
 
 A modern, responsive landing page for carbon management software built with Next.js 14, React, TypeScript, and Tailwind CSS.
 

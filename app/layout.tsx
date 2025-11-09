@@ -10,7 +10,7 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "EcoCarbon - Measure. Reduce. Report. With AI.",
+  title: "EcoPilot - Measure. Reduce. Report. With AI.",
   description: "Smarter carbon management software that helps your business cut emissions and stay compliant — automatically.",
 };
 
